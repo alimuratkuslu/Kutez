@@ -1,0 +1,172 @@
+.product-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  font-family: 'Avenir', sans-serif;
+  width: 300px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image-container {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-name {
+  margin: 1rem 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.product-details {
+  margin: 0.5rem 0;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.price {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.weight {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.color-options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.color-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.color-option {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: 2px solid #ddd;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.white {
+  background: linear-gradient(135deg, #fff, #f0f0f0);
+}
+
+.color-option.yellow {
+  background: linear-gradient(135deg, #ffd700, #ffcc00);
+}
+
+.color-option.rose {
+  background: linear-gradient(135deg, #f7cac9, #e8a19b);
+}
+
+.selected-color {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.stars-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+.stars-wrapper {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star-container {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+.star {
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.star.full {
+  color: #ffd700;
+}
+
+.star.half {
+  position: absolute;
+  left: 0;
+  color: #ffd700;
+  overflow: hidden;
+}
+
+.star.empty {
+  color: #ddd;
+}
+
+.rating-score {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  min-width: 3.5rem; 
+}
+
+.stars-container:hover .star {
+  transform: scale(1.1);
+}
+
+[title] {
+  position: relative;
+  cursor: pointer;
+}
+
+[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+}

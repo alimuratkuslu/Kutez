@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Avenir';
+    src: url('../assets/fonts/Avenir/Avenir-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .app {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Avenir', sans-serif;
+  }
+  
+  .app-title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
