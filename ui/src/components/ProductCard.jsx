@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular, faStarHalfAlt } from '@fortawesome/free-regular-svg-icons';
@@ -7,10 +7,32 @@ import '../styles/ProductCard.css';
 const ProductCard = ({ product }) => {
   const [currentImage, setCurrentImage] = useState(product.images.white);
   const [selectedColor, setSelectedColor] = useState('White Gold');
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+
+  const imageContainerRef = useRef(null);
 
   const handleColorHover = (color, colorName) => {
     setCurrentImage(product.images[color]);
     setSelectedColor(colorName);
+  };
+
+  const handleImageMouseEnter = () => {
+    setIsZoomed(true);
+  };
+
+  const handleImageMouseLeave = () => {
+    setIsZoomed(false);
+  };
+
+  const handleImageMouseMove = (e) => {
+    if (!imageContainerRef.current) return;
+
+    const { left, top, width, height } = imageContainerRef.current.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+
+    setZoomPosition({ x, y });
   };
 
   const formatPrice = (price) => {
@@ -75,12 +97,25 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product-card">
-      <div className="product-image-container">
+      <div className="product-image-container"
+           ref={imageContainerRef}
+           onMouseEnter={handleImageMouseEnter}
+           onMouseLeave={handleImageMouseLeave}
+           onMouseMove={handleImageMouseMove} >
         <img 
           src={currentImage} 
           alt={product.name} 
           className="product-image"
         />
+        {isZoomed && (
+          <div 
+            className="zoom-view"
+            style={{
+              backgroundImage: `url(${currentImage})`,
+              backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`
+            }}
+          />
+        )}
       </div>
       <h3 className="product-name">{product.name}</h3>
       <div className="product-details">
