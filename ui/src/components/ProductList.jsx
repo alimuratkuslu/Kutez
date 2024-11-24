@@ -18,7 +18,7 @@ const ProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      let url = 'http://localhost:8080/api/product';
+      let url = 'https://akuslu-kutez-763bd8b2f460.herokuapp.com/api/product';
       const params = new URLSearchParams();
       
       if (priceRange.min) params.append('minPrice', priceRange.min);
