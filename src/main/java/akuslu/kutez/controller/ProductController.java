@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequestMapping("/api/product")
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://akuslu-kutez-frontend-5c2424ea44ae.herokuapp.com")
 public class ProductController {
 
     private final ProductService productService;
