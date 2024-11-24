@@ -5,8 +5,8 @@ import { faStar as faStarRegular, faStarHalfAlt } from '@fortawesome/free-regula
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  const [currentImage, setCurrentImage] = useState(product.images.white);
-  const [selectedColor, setSelectedColor] = useState('White Gold');
+  const [currentImage, setCurrentImage] = useState(product.images.yellow);
+  const [selectedColor, setSelectedColor] = useState('Yellow Gold');
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
 
@@ -123,14 +123,14 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="color-options">
         <div 
-          className="color-option white"
-          onMouseEnter={() => handleColorHover('white', 'White Gold')}
-          title="White Gold"
-        />
-        <div 
           className="color-option yellow"
           onMouseEnter={() => handleColorHover('yellow', 'Yellow Gold')}
           title="Yellow Gold"
+        />
+        <div 
+          className="color-option white"
+          onMouseEnter={() => handleColorHover('white', 'White Gold')}
+          title="White Gold"
         />
         <div 
           className="color-option rose"

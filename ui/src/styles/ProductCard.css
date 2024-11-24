@@ -120,15 +120,15 @@
 }
 
 .color-option.white {
-  background: linear-gradient(135deg, #fff, #f0f0f0);
+  background: linear-gradient(135deg, #fff, #D9D9D9);
 }
 
 .color-option.yellow {
-  background: linear-gradient(135deg, #ffd700, #ffcc00);
+  background: linear-gradient(135deg, #ffd700, #E6CA97);
 }
 
 .color-option.rose {
-  background: linear-gradient(135deg, #f7cac9, #e8a19b);
+  background: linear-gradient(135deg, #f7cac9, #E1A4A9);
 }
 
 .selected-color {
